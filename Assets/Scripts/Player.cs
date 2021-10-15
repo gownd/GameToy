@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     [SerializeField] float fallMultiplier = 2.5f;
     [SerializeField] float lowJumpMultiplier = 2f;
     [SerializeField] float minFallVelocity = -14.5f;
+    [SerializeField] float coyoteTime = 0.1f;
+    [SerializeField] float jumpBufferTime = 0.1f;
 
     [Header("Feedbacks")]
     [SerializeField] MMFeedbacks jumpFeedbacks = null;
@@ -36,6 +38,8 @@ public class Player : MonoBehaviour
     InputActionPhase jumpActionPhase;
     float inputXValue;
     float runThrow;
+    float coyoteTimeCounter;
+    float jumpBufferCounter;
 
     void Start()
     {
@@ -52,11 +56,11 @@ public class Player : MonoBehaviour
     {
         if (isAlive)
         {
-            CheckIsJumping();   
+            ModifyJumpControl();
+            Jump();
         }
 
-        myAnimator.SetBool("isOnGround", myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")));
-        myAnimator.SetFloat("yVelocity", myRigidbody2D.velocity.y);
+        UpdateAnimatorParameters();
     }
 
     private void FixedUpdate()
@@ -65,22 +69,15 @@ public class Player : MonoBehaviour
         {
             Run();
             FlipSprite();
-            ModifyJump();
+            HandleShortJump();
         }
 
         ClampFallSpeed();
     }
 
-    private void Run()
+    public void OnMovement(InputAction.CallbackContext context)
     {
-        runThrow = Mathf.MoveTowards(runThrow, inputXValue, sensitivity * Time.fixedDeltaTime);
-        print(runThrow);
-
-        Vector2 playerVelocity = new Vector2(runThrow * runSpeed * Time.fixedDeltaTime, myRigidbody2D.velocity.y);
-        myRigidbody2D.velocity = playerVelocity;
-
-        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody2D.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("isRunning", playerHasHorizontalSpeed);
+        inputXValue = context.ReadValue<Vector2>().x;
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -89,12 +86,10 @@ public class Player : MonoBehaviour
         else if(context.phase == InputActionPhase.Canceled) MMVibrationManager.Haptic(HapticTypes.LightImpact);
 
         jumpActionPhase = context.phase;
-        Jump();
-    }
-
-    public void OnMovement(InputAction.CallbackContext context)
-    {
-        inputXValue = context.ReadValue<Vector2>().x;
+        if(jumpActionPhase == InputActionPhase.Performed) 
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
     }
 
     public void SetInputXValue(float value)
@@ -105,23 +100,41 @@ public class Player : MonoBehaviour
         else MMVibrationManager.Haptic(HapticTypes.Selection);
     }
 
+
+    private void Run()
+    {
+        runThrow = Mathf.MoveTowards(runThrow, inputXValue, sensitivity * Time.fixedDeltaTime);
+
+        Vector2 playerVelocity = new Vector2(runThrow * runSpeed * Time.fixedDeltaTime, myRigidbody2D.velocity.y);
+        myRigidbody2D.velocity = playerVelocity;
+
+        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody2D.velocity.x) > Mathf.Epsilon;
+        myAnimator.SetBool("isRunning", playerHasHorizontalSpeed);
+    }
+
     public void Jump()
     {
-        if (!myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
-
-        if(jumpActionPhase != InputActionPhase.Performed) return;
+        if (coyoteTimeCounter < 0f || jumpBufferCounter < 0f) return;
 
         isJumping = true;
-
-        jumpFeedbacks.PlayFeedbacks();
+        coyoteTimeCounter = 0f;
 
         myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, 0);
 
         Vector2 jumpVelocityToAdd = new Vector2(0f, jumpForce);
         myRigidbody2D.velocity += jumpVelocityToAdd;
+
+        jumpFeedbacks.PlayFeedbacks();
     }
 
-    private void CheckIsJumping()
+    void ModifyJumpControl()
+    {
+        HandleJumpEnd();
+        HandleCoyoteTime();
+        HandleJumpBuffer();
+    }
+
+    void HandleJumpEnd()
     {
         if (Mathf.Abs(myRigidbody2D.velocity.y) < Mathf.Epsilon)
         {
@@ -129,7 +142,24 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void ModifyJump()
+    void HandleCoyoteTime()
+    {
+        if(IsGrounded())
+        {
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+    }
+
+    void HandleJumpBuffer()
+    {
+        jumpBufferCounter -= Time.deltaTime;
+    }
+
+    private void HandleShortJump()
     {
         if (!isJumping) { return; }
 
@@ -143,13 +173,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void ClampFallSpeed()
-    {
-        myRigidbody2D.velocity = new Vector2(
-            myRigidbody2D.velocity.x,
-            Mathf.Clamp(myRigidbody2D.velocity.y, minFallVelocity, Mathf.Infinity));
-    }
-
     private void FlipSprite()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody2D.velocity.x) > Mathf.Epsilon;
@@ -157,5 +180,23 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody2D.velocity.x), 1f);
         }
+    }
+
+    private void ClampFallSpeed()
+    {
+        myRigidbody2D.velocity = new Vector2(
+            myRigidbody2D.velocity.x,
+            Mathf.Clamp(myRigidbody2D.velocity.y, minFallVelocity, Mathf.Infinity));
+    }
+
+    bool IsGrounded()
+    {
+        return myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground"));
+    }
+
+    void UpdateAnimatorParameters()
+    {
+        myAnimator.SetBool("isOnGround", IsGrounded());
+        myAnimator.SetFloat("yVelocity", myRigidbody2D.velocity.y);
     }
 }
