@@ -556,6 +556,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3152a40395506c6478ca2002c968d013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1113924207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7562000432107677966, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
+  m_PrefabInstance: {fileID: 7562000431002798945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1113924209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113924207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ControlPath: <Gamepad>/leftStick/up
+--- !u!1 &1175026010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7562000432177656379, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
+  m_PrefabInstance: {fileID: 7562000431002798945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1175026016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175026010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ControlPath: <Gamepad>/leftStick/up
 --- !u!1 &1185366901
 GameObject:
   m_ObjectHideFlags: 0
