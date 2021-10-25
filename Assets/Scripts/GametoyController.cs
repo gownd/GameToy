@@ -42,12 +42,27 @@ public class GametoyController : MonoBehaviour
         if(phase == InputActionPhase.Performed)
         {
             buttonPressed.GetComponent<Animator>().SetBool("isPressed", true);
-            MMVibrationManager.Haptic(HapticTypes.Selection);
+            MMVibrationManager.Haptic(HapticTypes.LightImpact);
         }
         else if(phase == InputActionPhase.Canceled)
         {
             buttonPressed.GetComponent<Animator>().SetBool("isPressed", false);
+            
+            MMVibrationManager.Haptic(HapticTypes.Selection);
+        }
+    }
+
+    public void HandleArrowButtonPress(bool isPressed)
+    {
+        if(isPressed)
+        {
+            buttonArrow.GetComponent<Animator>().SetBool("isPressed", true);
             MMVibrationManager.Haptic(HapticTypes.LightImpact);
+        }
+        else
+        {
+            buttonArrow.GetComponent<Animator>().SetBool("isPressed", false);   
+            MMVibrationManager.Haptic(HapticTypes.Selection);
         }
     }
 }

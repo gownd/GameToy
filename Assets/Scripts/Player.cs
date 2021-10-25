@@ -81,9 +81,6 @@ public class Player : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        // if(context.phase == InputActionPhase.Performed) MMVibrationManager.Haptic(HapticTypes.Selection);
-        // else if(context.phase == InputActionPhase.Canceled) MMVibrationManager.Haptic(HapticTypes.LightImpact);
-
         jumpActionPhase = context.phase;
         if(jumpActionPhase == InputActionPhase.Performed) 
         {
