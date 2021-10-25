@@ -19,7 +19,6 @@ public class GametoyController : MonoBehaviour
 
     public void OnPressB(InputAction.CallbackContext context)
     {
-        print("A");
         HandleButtonPress(buttonB, context.phase);
     }
 

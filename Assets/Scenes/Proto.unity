@@ -492,7 +492,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3002100035986641021, guid: 517d10f0f60b1bb4ab4b5f109971bf7c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 517d10f0f60b1bb4ab4b5f109971bf7c, type: 3}
 --- !u!4 &924931571 stripped
 Transform:
@@ -544,6 +545,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1005099362 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7652006176040172855, guid: 517d10f0f60b1bb4ab4b5f109971bf7c, type: 3}
+  m_PrefabInstance: {fileID: 924931570}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3152a40395506c6478ca2002c968d013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1185366901
 GameObject:
   m_ObjectHideFlags: 0
@@ -28601,6 +28613,140 @@ MonoBehaviour:
   buttonStart: {fileID: 1759152778}
   buttonSelect: {fileID: 1389465989}
   buttonArrow: {fileID: 278364008}
+--- !u!114 &1418979949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418979947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 78ac02fa7fd4eda419f320beb26c6ac5, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1418979948}
+        m_TargetAssemblyTypeName: GametoyController, Assembly-CSharp
+        m_MethodName: OnPressB
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1005099362}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9749ae62-4df8-4740-9589-5737a6d73506
+    m_ActionName: Player/B[/Keyboard/z,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1418979948}
+        m_TargetAssemblyTypeName: GametoyController, Assembly-CSharp
+        m_MethodName: OnPressA
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3869fca0-5b56-4770-9788-a2b223ba03fc
+    m_ActionName: Player/A[/Keyboard/x,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1005099362}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1418979948}
+        m_TargetAssemblyTypeName: GametoyController, Assembly-CSharp
+        m_MethodName: OnPressArrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 915119f9-c575-4a92-afa2-d0cdc3ff96be
+    m_ActionName: Player/Arrow[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1418979948}
+        m_TargetAssemblyTypeName: GametoyController, Assembly-CSharp
+        m_MethodName: OnPressStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 966de5df-2d6f-4cd7-82ef-9cb94f8990fb
+    m_ActionName: Player/Start[/Keyboard/enter,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1418979948}
+        m_TargetAssemblyTypeName: GametoyController, Assembly-CSharp
+        m_MethodName: OnPressSelect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c85027e1-2a2f-4e14-bf5f-e71017dc2c4e
+    m_ActionName: Player/Select[/Keyboard/backspace,/XInputControllerWindows/select]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1503430663 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1632551667961567969, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
@@ -28696,18 +28842,34 @@ PrefabInstance:
     - target: {fileID: 7562000432107677968, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1005099362}
     - target: {fileID: 7562000432107677968, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1005099362}
+    - target: {fileID: 7562000432107677968, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetInputXValue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562000432107677968, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetInputXValue
       objectReference: {fileID: 0}
     - target: {fileID: 7562000432177656381, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1005099362}
     - target: {fileID: 7562000432177656381, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1005099362}
+    - target: {fileID: 7562000432177656381, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetInputXValue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7562000432177656381, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetInputXValue
       objectReference: {fileID: 0}
     - target: {fileID: 7562000432421544202, guid: eeb3a9bdef6b4064f9afb63e53ec9869, type: 3}
       propertyPath: m_Name
