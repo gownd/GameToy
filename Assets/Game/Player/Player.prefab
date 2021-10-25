@@ -428,6 +428,8 @@ MonoBehaviour:
   fallMultiplier: 2.5
   lowJumpMultiplier: 7
   minFallVelocity: -14.5
+  coyoteTime: 0.125
+  jumpBufferTime: 0.1
   jumpFeedbacks: {fileID: 1079810358}
 --- !u!114 &3002100035986641021
 MonoBehaviour:
@@ -441,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 78ac02fa7fd4eda419f320beb26c6ac5, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 6f3085739bbb6ca489baab9e0f381c6c, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -486,6 +488,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 915119f9-c575-4a92-afa2-d0cdc3ff96be
     m_ActionName: Player/Movement[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3869fca0-5b56-4770-9788-a2b223ba03fc
+    m_ActionName: Player/A[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 966de5df-2d6f-4cd7-82ef-9cb94f8990fb
+    m_ActionName: Player/Start[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c85027e1-2a2f-4e14-bf5f-e71017dc2c4e
+    m_ActionName: Player/Select[/Keyboard/backspace]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

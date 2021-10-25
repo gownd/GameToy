@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
 using UnityEngine.InputSystem;
-using MoreMountains.NiceVibrations;
 
 public class Player : MonoBehaviour
 {
@@ -82,8 +81,8 @@ public class Player : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Performed) MMVibrationManager.Haptic(HapticTypes.Selection);
-        else if(context.phase == InputActionPhase.Canceled) MMVibrationManager.Haptic(HapticTypes.LightImpact);
+        // if(context.phase == InputActionPhase.Performed) MMVibrationManager.Haptic(HapticTypes.Selection);
+        // else if(context.phase == InputActionPhase.Canceled) MMVibrationManager.Haptic(HapticTypes.LightImpact);
 
         jumpActionPhase = context.phase;
         if(jumpActionPhase == InputActionPhase.Performed) 
@@ -96,8 +95,8 @@ public class Player : MonoBehaviour
     {
         inputXValue = value;
 
-        if(inputXValue == 0) MMVibrationManager.Haptic(HapticTypes.LightImpact);
-        else MMVibrationManager.Haptic(HapticTypes.Selection);
+        // if(inputXValue == 0) MMVibrationManager.Haptic(HapticTypes.LightImpact);
+        // else MMVibrationManager.Haptic(HapticTypes.Selection);
     }
 
 
