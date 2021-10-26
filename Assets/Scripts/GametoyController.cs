@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using MoreMountains.NiceVibrations;
+using System;
 
 public class GametoyController : MonoBehaviour
 {
@@ -12,32 +13,66 @@ public class GametoyController : MonoBehaviour
     [SerializeField] GameObject buttonSelect = null;
     [SerializeField] GameObject buttonArrow = null;
 
+    public delegate void HandleButtonPress(InputAction.CallbackContext context);
+    public HandleButtonPress HandlePressA;
+    public HandleButtonPress HandlePressB;
+    public HandleButtonPress HandlePressStart;
+    public HandleButtonPress HandlePressSelect;
+
+    public delegate void HandlePressArrowBy(Vector2 inputValue);
+    public HandlePressArrowBy HandlePressArrow;
+
     public void OnPressA(InputAction.CallbackContext context)
     {
-        HandleButtonPress(buttonA, context.phase);
+        AnimateButton(buttonA, context.phase);
+
+        HandlePressA?.Invoke(context);
     }
 
     public void OnPressB(InputAction.CallbackContext context)
     {
-        HandleButtonPress(buttonB, context.phase);
+        AnimateButton(buttonB, context.phase);
+
+        HandlePressB?.Invoke(context);
     }
 
-        public void OnPressStart(InputAction.CallbackContext context)
+    public void OnPressStart(InputAction.CallbackContext context)
     {
-        HandleButtonPress(buttonStart, context.phase);
+        AnimateButton(buttonStart, context.phase);
+
+        HandlePressStart?.Invoke(context);
     }
 
-        public void OnPressSelect(InputAction.CallbackContext context)
+    public void OnPressSelect(InputAction.CallbackContext context)
     {
-        HandleButtonPress(buttonSelect, context.phase);
+        AnimateButton(buttonSelect, context.phase);
+
+        HandlePressSelect?.Invoke(context);
     }
 
     public void OnPressArrow(InputAction.CallbackContext context)
     {
-        HandleButtonPress(buttonArrow, context.phase);
+        AnimateArrowButton(context.phase == InputActionPhase.Performed);
+
+        HandlePressArrow?.Invoke(context.ReadValue<Vector2>());
     }
 
-    void HandleButtonPress(GameObject buttonPressed, InputActionPhase phase)
+    public void OnPressArrowByTouch(int direction) // Event Trigger에서 실행됨
+    {
+        // 0:up 1:down 2:left 3:right 10:none
+        Vector2 inputValue = new Vector2();
+        if(direction == 0) inputValue = new Vector2(0f, 1f);
+        else if(direction == 1) inputValue = new Vector2(0f, -1f);
+        else if(direction == 2) inputValue = new Vector2(-1f, 0f);
+        else if(direction == 3) inputValue = new Vector2(1f, 0f);
+        else if(direction == 10) inputValue = new Vector2(0f, 0f);
+
+        AnimateArrowButton(direction < 4);
+
+        HandlePressArrow?.Invoke(inputValue);
+    }
+
+    void AnimateButton(GameObject buttonPressed, InputActionPhase phase)
     {
         if(phase == InputActionPhase.Performed)
         {
@@ -52,7 +87,7 @@ public class GametoyController : MonoBehaviour
         }
     }
 
-    public void HandleArrowButtonPress(bool isPressed)
+    public void AnimateArrowButton(bool isPressed)
     {
         if(isPressed)
         {

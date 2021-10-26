@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
 
         defaultGravityScale = myRigidbody2D.gravityScale;
         myRigidbody2D.gravityScale = defaultGravityScale;
+
+        AddControls();
     }
 
     void Update()
@@ -74,12 +76,25 @@ public class Player : MonoBehaviour
         ClampFallSpeed();
     }
 
-    public void OnMovement(InputAction.CallbackContext context)
+    void AddControls()
     {
-        inputXValue = context.ReadValue<Vector2>().x;
+        GametoyController gametoyController = FindObjectOfType<GametoyController>();
+
+        gametoyController.HandlePressB += HandleJump;
+        gametoyController.HandlePressArrow += HandleMovement;
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    void HandleMovement(Vector2 inputValue)
+    {
+        SetInputXValue(inputValue.x);
+    }
+
+    public void SetInputXValue(float value)
+    {
+        inputXValue = value;
+    }
+
+    void HandleJump(InputAction.CallbackContext context)
     {
         jumpActionPhase = context.phase;
         if(jumpActionPhase == InputActionPhase.Performed) 
@@ -87,15 +102,6 @@ public class Player : MonoBehaviour
             jumpBufferCounter = jumpBufferTime;
         }
     }
-
-    public void SetInputXValue(float value)
-    {
-        inputXValue = value;
-
-        // if(inputXValue == 0) MMVibrationManager.Haptic(HapticTypes.LightImpact);
-        // else MMVibrationManager.Haptic(HapticTypes.Selection);
-    }
-
 
     private void Run()
     {
