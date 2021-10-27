@@ -34,14 +34,14 @@ public class LetterBoxer : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-        // perform sizing if onUpdate is set
-        if (onUpdate)
-        {
-            PerformSizing();
-        }
-    }
+    // public void Update()
+    // {
+    //     // perform sizing if onUpdate is set
+    //     if (onUpdate)
+    //     {
+    //         PerformSizing();
+    //     }
+    // }
 
     private void OnValidate()
     {

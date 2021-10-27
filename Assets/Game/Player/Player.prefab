@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6861797250112410188, guid: 5b8238862b6e783408de7147ee503890, type: 3}
+  m_Sprite: {fileID: -5115618752126089108, guid: d81784a2bdce47d4fbe804f160051555, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -319,7 +319,6 @@ GameObject:
   - component: {fileID: 6925631459890852514}
   - component: {fileID: 1560400859}
   - component: {fileID: 7652006176040172855}
-  - component: {fileID: 3002100035986641021}
   - component: {fileID: 1561716828}
   m_Layer: 0
   m_Name: Player
@@ -378,7 +377,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03162448, y: -0.43640658}
+  m_Offset: {x: 0.028543025, y: -0.46692634}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -389,7 +388,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3227885, y: 0.12718683}
+  m_Size: {x: 0.44312352, y: 0.18822634}
   m_EdgeRadius: 0
 --- !u!95 &1560400859
 Animator:
@@ -424,87 +423,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 250
   sensitivity: 6
-  jumpForce: 12
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 7
+  jumpForce: 13.5
+  fallMultiplier: 2.2
+  lowJumpMultiplier: 8
   minFallVelocity: -14.5
   coyoteTime: 0.125
   jumpBufferTime: 0.1
   jumpFeedbacks: {fileID: 1079810358}
---- !u!114 &3002100035986641021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3002100036976378785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 6f3085739bbb6ca489baab9e0f381c6c, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7652006176040172855}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnJump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 9749ae62-4df8-4740-9589-5737a6d73506
-    m_ActionName: Player/Jump[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7652006176040172855}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: OnMovement
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 915119f9-c575-4a92-afa2-d0cdc3ff96be
-    m_ActionName: Player/Movement[/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3869fca0-5b56-4770-9788-a2b223ba03fc
-    m_ActionName: Player/A[/Keyboard/x]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 966de5df-2d6f-4cd7-82ef-9cb94f8990fb
-    m_ActionName: Player/Start[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c85027e1-2a2f-4e14-bf5f-e71017dc2c4e
-    m_ActionName: Player/Select[/Keyboard/backspace]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!70 &1561716828
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -518,6 +443,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.030703425, y: -0.04186827}
-  m_Size: {x: 0.43859315, y: 0.83066595}
+  m_Offset: {x: 0.02859208, y: -0.04186827}
+  m_Size: {x: 0.55718416, y: 0.83066595}
   m_Direction: 0
