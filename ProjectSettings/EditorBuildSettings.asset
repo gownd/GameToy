@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Proto.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Power Off.unity
+    guid: 12fc850562622044caed858ddcb4299c
+  - enabled: 1
+    path: Assets/Scenes/StartUp.unity
+    guid: d230ad100a34378449fd4a896b3787e7
+  - enabled: 1
+    path: Assets/Scenes/SelectGame.unity
+    guid: b444ec3f232a91140b3030bd308ed0e4
+  - enabled: 1
+    path: Assets/Scenes/Proto_Wide.unity
+    guid: 082d266efa6612f4080d4eb633066796
+  - enabled: 1
+    path: Assets/Scenes/Delza.unity
+    guid: 25d99bb1aee8dad45b8d8ab1a12cd00d
+  - enabled: 1
+    path: Assets/Scenes/Eggwatch.unity
+    guid: 45d6dda78a706a84eab65e894b5723c7
   m_configObjects: {}

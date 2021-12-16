@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
         gametoyController.HandlePressArrow += HandleMovement;
     }
 
-    void HandleMovement(Vector2 inputValue)
+    void HandleMovement(Vector2 inputValue, InputActionPhase phase)
     {
         SetInputXValue(inputValue.x);
     }
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
     void HandleJump(InputAction.CallbackContext context)
     {
         jumpActionPhase = context.phase;
-        if(jumpActionPhase == InputActionPhase.Performed) 
+        if (jumpActionPhase == InputActionPhase.Performed)
         {
             jumpBufferCounter = jumpBufferTime;
         }
@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
 
     void HandleCoyoteTime()
     {
-        if(IsGrounded())
+        if (IsGrounded())
         {
             coyoteTimeCounter = coyoteTime;
         }

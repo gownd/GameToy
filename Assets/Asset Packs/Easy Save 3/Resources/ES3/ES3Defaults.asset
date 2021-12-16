@@ -45,11 +45,15 @@ MonoBehaviour:
     - MoreMountains.NiceVibrations.Rumble.Editor
     - MoreMountains.Feedbacks.NiceVibrations
     - MoreMountains.NiceVibrations.Rumble
+    - Febucci.TextAnimator.Runtime
+    - Febucci.TextAnimator.Demo.Runtime
     - MoreMountains.Tools.Editor
     - PsdPlugin
     - MoreMountains.Feedbacks.Editor
     - MoreMountains.Tools.Feedbacks.Editor
     - MoreMountains.NiceVibrations.Editor
+    - Febucci.TextAnimator.Demo.Editor
+    - Febucci.TextAnimator.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
