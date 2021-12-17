@@ -341,7 +341,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerSldier: {fileID: 4562041679312121160}
-  isPowerOn: 1
 --- !u!1 &3195002663354986447
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,8 +20,6 @@ public class PowerSlider : MonoBehaviour
 
     private void Update()
     {
-        // print(powerSldier.value);
-
         HandlePullSlider();
         SwitchGametoy();
     }

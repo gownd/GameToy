@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class StartUpHandler : MonoBehaviour
 {
-    [SerializeField] float timeToWait = 4.8f;
+    [SerializeField] float timeToWaitAnimation = 4.8f;
+    [SerializeField] float timeToWaitLoad = 0.5f;
+    [SerializeField] GameObject canvas = null;
 
     private void Start()
     {
@@ -13,7 +15,10 @@ public class StartUpHandler : MonoBehaviour
 
     IEnumerator HandleStartUpScene()
     {
-        yield return new WaitForSeconds(timeToWait);
+        yield return new WaitForSeconds(timeToWaitAnimation);
+
+        canvas.SetActive(false);
+        yield return new WaitForSeconds(timeToWaitLoad);
 
         FindObjectOfType<SceneLoader>().LoadProtoScene();
     }

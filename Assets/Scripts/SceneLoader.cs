@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] GameObject blackOut = null;
+
     public void TurnOffGametoy()
     {
         FindObjectOfType<GametoyController>().ResetControls();
@@ -23,9 +25,22 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void LoadSceneByIndex(int index)
+    public IEnumerator LoadSceneByIndex(int index)
     {
         FindObjectOfType<GametoyController>().ResetControls();
-        SceneManager.LoadScene(index);
+
+        blackOut.SetActive(true);
+        
+        yield return new WaitForSeconds(0.05f);
+        yield return SceneManager.LoadSceneAsync(index);
+
+        blackOut.SetActive(false);
+    }
+
+    public IEnumerator StartRamio()
+    {
+        FindObjectOfType<GametoyController>().ResetControls();
+
+        yield return SceneManager.LoadSceneAsync(6);
     }
 }

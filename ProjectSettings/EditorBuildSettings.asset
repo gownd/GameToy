@@ -6,21 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Power Off.unity
+    path: Assets/Scenes/Game Console/Power Off.unity
     guid: 12fc850562622044caed858ddcb4299c
   - enabled: 1
-    path: Assets/Scenes/StartUp.unity
+    path: Assets/Scenes/Game Console/StartUp.unity
     guid: d230ad100a34378449fd4a896b3787e7
   - enabled: 1
-    path: Assets/Scenes/SelectGame.unity
+    path: Assets/Scenes/Game Console/SelectGame.unity
     guid: b444ec3f232a91140b3030bd308ed0e4
   - enabled: 1
-    path: Assets/Scenes/Proto_Wide.unity
-    guid: 082d266efa6612f4080d4eb633066796
+    path: Assets/Scenes/Super Ramio/R_Title.unity
+    guid: 412bfeca2b85cea48b06a25c7f3c7dd2
   - enabled: 1
     path: Assets/Scenes/Delza.unity
-    guid: 25d99bb1aee8dad45b8d8ab1a12cd00d
+    guid: 6203615882245824da3c34ec3311ceb7
   - enabled: 1
     path: Assets/Scenes/Eggwatch.unity
     guid: 45d6dda78a706a84eab65e894b5723c7
+  - enabled: 1
+    path: Assets/Scenes/Super Ramio/R_Test.unity
+    guid: 81327733066cca74d9d53ef59d1cb74f
   m_configObjects: {}
