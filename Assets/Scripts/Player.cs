@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     //Config
     [Header("Movement")]
     [SerializeField] float runSpeed = 6f;
-    [SerializeField] float sensitivity = 0.5f;
+    [SerializeField] float sensitivity_a = 0.5f;
+    [SerializeField] float sensitivity_r = 0.5f;
+    [SerializeField] float sensitivity_jump = 0.1f;
 
     [Header("Jump")]
     [SerializeField] float jumpForce = 10f;
@@ -105,13 +107,36 @@ public class Player : MonoBehaviour
 
     private void Run()
     {
-        runThrow = Mathf.MoveTowards(runThrow, inputXValue, sensitivity * Time.fixedDeltaTime);
+        SetRunThrow();
 
         Vector2 playerVelocity = new Vector2(runThrow * runSpeed * Time.fixedDeltaTime, myRigidbody2D.velocity.y);
         myRigidbody2D.velocity = playerVelocity;
 
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody2D.velocity.x) > Mathf.Epsilon;
         myAnimator.SetBool("isRunning", playerHasHorizontalSpeed);
+    }
+
+    void SetRunThrow()
+    {
+        float sensitivity = 0f;
+
+        if(isJumping)
+        {
+            sensitivity = sensitivity_jump;
+        }
+        else 
+        {
+            if (inputXValue == 0)
+            {
+                sensitivity = sensitivity_r;
+            }
+            else
+            {   
+                sensitivity = sensitivity_a;
+            }
+        }
+
+        runThrow = Mathf.MoveTowards(runThrow, inputXValue, sensitivity * Time.fixedDeltaTime);
     }
 
     public void Jump()
@@ -138,7 +163,7 @@ public class Player : MonoBehaviour
 
     void HandleJumpEnd()
     {
-        if (Mathf.Abs(myRigidbody2D.velocity.y) < Mathf.Epsilon)
+        if (IsGrounded())
         {
             isJumping = false;
         }
@@ -163,7 +188,7 @@ public class Player : MonoBehaviour
 
     private void HandleShortJump()
     {
-        if (!isJumping) { return; }
+        // if (!isJumping) { return; }
 
         if (myRigidbody2D.velocity.y < 0)
         {
