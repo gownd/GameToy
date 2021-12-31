@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Eggwatch.unity
     guid: 45d6dda78a706a84eab65e894b5723c7
   - enabled: 1
-    path: Assets/Scenes/Super Ramio/R_Test.unity
-    guid: 81327733066cca74d9d53ef59d1cb74f
+    path: Assets/Scenes/Super Ramio/R_Jump Test.unity
+    guid: 973ec4acbbd9789479b79e00255030a9
   m_configObjects: {}
