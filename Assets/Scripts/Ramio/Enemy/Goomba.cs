@@ -35,7 +35,7 @@ public class Goomba : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.GetComponent<Player>()) return;
-
+        
         transform.localScale = new Vector2(-transform.localScale.x, 1f);
     }
 

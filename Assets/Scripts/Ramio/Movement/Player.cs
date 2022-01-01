@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     //State
     bool isAlive = true;
     bool isJumping = false;
+    bool enemyJump = false;
     float defaultGravityScale;
 
     //Cached Componenet References
@@ -76,12 +77,12 @@ public class Player : MonoBehaviour
             HandleShortJump();
         }
 
-        ClampFallSpeed();
+        ModifyFall();
     }
 
-    private void OnCollisionEnter2D(Collision2D other) 
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if(!isAlive) return;
+        if (!isAlive) return;
 
         if (myBodyCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
@@ -92,14 +93,21 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(!isAlive) return;
+        if (!isAlive) return;
 
+        StompEnemy(other);
+    }
+
+    private void StompEnemy(Collider2D other)
+    {
         if (myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
             isJumping = false;
             other.GetComponent<Goomba>().Die();
+
+            isJumping = (jumpBufferCounter >= 0f);
 
             myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, 0);
 
@@ -151,6 +159,8 @@ public class Player : MonoBehaviour
 
     void Skid()
     {
+        if(isJumping) return;
+
         myAnimator.SetBool("isSkidding", runThrow * inputXValue < 0f);
     }
 
@@ -224,15 +234,20 @@ public class Player : MonoBehaviour
 
     private void HandleShortJump()
     {
-        // if (!isJumping) { return; }
+        if (myRigidbody2D.velocity.y > 0)
+        {
+            if(jumpActionPhase != InputActionPhase.Performed || !isJumping)
+            {
+                myRigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1f) * Time.fixedDeltaTime;
+            }
+        }
+    }
 
+    void ModifyFall()
+    {
         if (myRigidbody2D.velocity.y < 0)
         {
             myRigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1f) * Time.fixedDeltaTime;
-        }
-        else if (myRigidbody2D.velocity.y > 0 && jumpActionPhase != InputActionPhase.Performed)
-        {
-            myRigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1f) * Time.fixedDeltaTime;
         }
     }
 
@@ -283,6 +298,7 @@ public class Player : MonoBehaviour
 
         myAnimator.SetBool("hasDied", true);
         myBodyCollider2D.isTrigger = true;
+        myRigidbody2D.AddForce(new Vector2(0f, 300f));
 
         yield return new WaitForSeconds(1f);
 

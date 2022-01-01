@@ -68,8 +68,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2119015601
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 8596640243658272642, guid: b3a5fd12f74735c4383a73e39d348741, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -188,7 +188,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.43857765, y: -0.15673077}
+  m_Offset: {x: 0.43857765, y: -0.07990408}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -199,7 +199,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.031661987, y: 0.38686872}
+  m_Size: {x: 0.031661987, y: 0.23321533}
   m_EdgeRadius: 0
 --- !u!114 &861578348
 MonoBehaviour:
@@ -228,7 +228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4777337535051981496, guid: b5d8339eae6d5ae408214c82cd0b9422, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.959999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4777337535051981496, guid: b5d8339eae6d5ae408214c82cd0b9422, type: 3}
       propertyPath: m_LocalPosition.y
@@ -267,12 +267,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4873462552609101746, guid: b5d8339eae6d5ae408214c82cd0b9422, type: 3}
+      propertyPath: m_Size.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873462552609101746, guid: b5d8339eae6d5ae408214c82cd0b9422, type: 3}
       propertyPath: m_Size.y
-      value: 13.590124
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4873462552609101746, guid: b5d8339eae6d5ae408214c82cd0b9422, type: 3}
       propertyPath: m_Offset.y
-      value: 6.295062
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5425164605321664195, guid: b5d8339eae6d5ae408214c82cd0b9422, type: 3}
       propertyPath: m_Icon

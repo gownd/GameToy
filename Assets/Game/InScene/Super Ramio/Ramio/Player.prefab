@@ -348,7 +348,7 @@ MonoBehaviour:
   lowJumpMultiplier: 6
   minFallVelocity: -14.5
   coyoteTime: 0.125
-  jumpBufferTime: 0.1
+  jumpBufferTime: 0.15
   enemyJumpMultiplier: 1.1
 --- !u!70 &671961809345822332
 CapsuleCollider2D:
@@ -434,9 +434,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -200244379
-  m_SortingLayer: 1
-  m_SortingOrder: 5
+  m_SortingLayerID: -2018212829
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 8689213988770747469, guid: 2d01e53406e672d4db1c5f38a1546b8a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
