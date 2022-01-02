@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     //State
     bool isAlive = true;
     bool isJumping = false;
+    bool longJumpCheck = true;
     bool enemyJump = false;
     float defaultGravityScale;
 
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
     BoxCollider2D myFeetCollider2D;
     Animator myAnimator;
 
+    CollisionSideDetector collisionSideDetector;
+
     //Control
     InputActionPhase jumpActionPhase;
     float inputXValue;
@@ -42,13 +45,18 @@ public class Player : MonoBehaviour
     float coyoteTimeCounter;
     float jumpBufferCounter;
 
-    void Start()
+    private void Awake() 
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
         myBodyCollider2D = GetComponent<CapsuleCollider2D>();
         myFeetCollider2D = GetComponent<BoxCollider2D>();
         myAnimator = GetComponent<Animator>();
 
+        collisionSideDetector = GetComponent<CollisionSideDetector>();
+    }
+
+    void Start()
+    {
         defaultGravityScale = myRigidbody2D.gravityScale;
         myRigidbody2D.gravityScale = defaultGravityScale;
 
@@ -104,10 +112,10 @@ public class Player : MonoBehaviour
     {
         if (myFeetCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
-            isJumping = false;
+            longJumpCheck = false;
             other.GetComponent<Goomba>().Die();
 
-            isJumping = (jumpBufferCounter >= 0f);
+            longJumpCheck = (jumpBufferCounter >= 0f);
 
             myRigidbody2D.velocity = new Vector2(myRigidbody2D.velocity.x, 0);
 
@@ -212,6 +220,7 @@ public class Player : MonoBehaviour
         if (IsGrounded())
         {
             isJumping = false;
+            longJumpCheck = true;
         }
     }
 
@@ -236,7 +245,7 @@ public class Player : MonoBehaviour
     {
         if (myRigidbody2D.velocity.y > 0)
         {
-            if(jumpActionPhase != InputActionPhase.Performed || !isJumping)
+            if(jumpActionPhase != InputActionPhase.Performed || !longJumpCheck)
             {
                 myRigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1f) * Time.fixedDeltaTime;
             }
@@ -292,6 +301,8 @@ public class Player : MonoBehaviour
 
     public IEnumerator Die()
     {
+        if(!isAlive) yield break;
+
         isAlive = false;
 
         // isJumping = false;

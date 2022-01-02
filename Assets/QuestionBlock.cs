@@ -39,7 +39,6 @@ public class QuestionBlock : MonoBehaviour
 
         animator.SetTrigger("Hit");
 
-        GameObject newObject = Instantiate(objectToSpawn, transform.position + new Vector3(0f, 1f, 0f), Quaternion.identity);
-        // newObject.transform.position = 
+        objectToSpawn.SetActive(true);
     }
 }

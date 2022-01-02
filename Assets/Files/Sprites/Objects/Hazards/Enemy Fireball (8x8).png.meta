@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 97b9a1b3724b0d04083cdd5775626820
+guid: 3870b52018c976540a5259bb11ba9e27
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1494352897237206093
-    second: Switch_0
+      213: 2444039963607122273
+    second: Enemy Fireball (8x8)_0
   - first:
-      213: 5207117429831932417
-    second: Switch_1
+      213: 8569021026877632177
+    second: Enemy Fireball (8x8)_1
+  - first:
+      213: -8959132482159945461
+    second: Enemy Fireball (8x8)_2
+  - first:
+      213: -3167728469306240132
+    second: Enemy Fireball (8x8)_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Switch_0
+      name: Enemy Fireball (8x8)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bbb91715fdf24be0800000000000000
-      internalID: -1494352897237206093
+      spriteID: 16149a7d569fae120800000000000000
+      internalID: 2444039963607122273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Switch_1
+      name: Enemy Fireball (8x8)_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 8
         y: 0
-        width: 16
-        height: 16
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,8 +174,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10a90e4c6b5634840800000000000000
-      internalID: 5207117429831932417
+      spriteID: 1bee4eb29374be670800000000000000
+      internalID: 8569021026877632177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Fireball (8x8)_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0951399974caa380800000000000000
+      internalID: -8959132482159945461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy Fireball (8x8)_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c731c129db7f904d0800000000000000
+      internalID: -3167728469306240132
       vertices: []
       indices: 
       edges: []

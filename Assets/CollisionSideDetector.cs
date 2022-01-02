@@ -6,21 +6,21 @@ public class CollisionSideDetector : MonoBehaviour
 {
     public CollisionSide GetCollisionSide(Collision2D other, BoxCollider2D collider)
     {
-        Vector2 contactPos = other.GetContact(0).point;
-        Vector2 offset = (Vector2)transform.position - contactPos;
-
         float halfColldierSizeX = collider.size.x / 2f;
         float halfColliderSizeY = collider.size.y / 2f;
 
-        if (Mathf.Abs(offset.x) - Mathf.Abs(offset.y) > 0)
+        Vector2 contactPos = other.GetContact(0).point;
+        Vector2 offset = ((Vector2)transform.position + collider.offset) - contactPos;
+
+        if(Mathf.Abs(offset.x) >= halfColldierSizeX)
         {
-            if (offset.x <= -halfColldierSizeX) return CollisionSide.right;
-            else if(offset.x >= halfColldierSizeX) return CollisionSide.left;
+            if (offset.x < 0f) return CollisionSide.right;
+            else if(offset.x > 0f) return CollisionSide.left;
         }
-        else
+        else if(Mathf.Abs(offset.y) >= halfColliderSizeY)
         {
-            if(offset.y <= -halfColliderSizeY) return CollisionSide.up;
-            else if (offset.y >= halfColliderSizeY) return CollisionSide.down;
+            if(offset.y < 0f) return CollisionSide.up;
+            else if (offset.y > 0f) return CollisionSide.down;
         }
 
         return CollisionSide.unknown;

@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 97b9a1b3724b0d04083cdd5775626820
+guid: 1903f429c9efe58408c267b6b3e7c20e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1494352897237206093
-    second: Switch_0
+      213: 2655410538465308045
+    second: Flower Enemy_0
   - first:
-      213: 5207117429831932417
-    second: Switch_1
+      213: 8523605611100459937
+    second: Flower Enemy_1
+  - first:
+      213: 7482725068958898875
+    second: Flower Enemy_2
+  - first:
+      213: 6809505917315195106
+    second: Flower Enemy_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Switch_0
+      name: Flower Enemy_0
       rect:
         serializedVersion: 2
         x: 0
@@ -147,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bbb91715fdf24be0800000000000000
-      internalID: -1494352897237206093
+      spriteID: d8dad06d0d9e9d420800000000000000
+      internalID: 2655410538465308045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Switch_1
+      name: Flower Enemy_1
       rect:
         serializedVersion: 2
         x: 16
@@ -168,8 +174,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10a90e4c6b5634840800000000000000
-      internalID: 5207117429831932417
+      spriteID: 1a35b2fa42ee94670800000000000000
+      internalID: 8523605611100459937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower Enemy_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bba94371ecaf7d760800000000000000
+      internalID: 7482725068958898875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flower Enemy_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e02e71bd89308e50800000000000000
+      internalID: 6809505917315195106
       vertices: []
       indices: 
       edges: []
