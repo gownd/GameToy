@@ -94,8 +94,8 @@ GameObject:
   - component: {fileID: 606105669}
   - component: {fileID: 606105670}
   - component: {fileID: 606105672}
-  - component: {fileID: 606105671}
   - component: {fileID: 606105673}
+  - component: {fileID: 1121453227866399545}
   m_Layer: 8
   m_Name: Button Switch
   m_TagString: Untagged
@@ -152,7 +152,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.28070176}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -163,7 +163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.4385965}
   m_EdgeRadius: 0
 --- !u!95 &606105672
 Animator:
@@ -184,18 +184,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &606105671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8487812737832108168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 340be0680492c6744826af5ddd0b4988, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &606105673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,3 +198,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOn: 0
   index: 0
+--- !u!114 &1121453227866399545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8487812737832108168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb923dc6fba201342b42df7abbe4f6a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

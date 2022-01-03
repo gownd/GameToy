@@ -33,7 +33,7 @@ public class QuestionBlock : MonoBehaviour
 
     IEnumerator SpawnObject(Collision2D other)
     {
-        if (!other.collider.CompareTag("Player")) yield break;
+        if (!(other.collider.CompareTag("Player") || other.collider.CompareTag("Touch"))) yield break;
 
         hasSpawned = true;
 

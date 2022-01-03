@@ -12,6 +12,10 @@ public class CollisionSideDetector : MonoBehaviour
         Vector2 contactPos = other.GetContact(0).point;
         Vector2 offset = ((Vector2)transform.position + collider.offset) - contactPos;
 
+        print("contactPos: " + contactPos);
+        print("offset: " + offset);
+
+
         if(Mathf.Abs(offset.x) >= halfColldierSizeX)
         {
             if (offset.x < 0f) return CollisionSide.right;

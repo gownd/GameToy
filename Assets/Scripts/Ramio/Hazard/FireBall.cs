@@ -15,13 +15,12 @@ public class FireBall : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        print(direction);
         rb.velocity = direction * Time.deltaTime * moveSpeed;   
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
-        if(other.transform == transform.parent) return;
+        if(other.transform == transform.parent || other.transform.parent == transform.parent) return;
 
         if(other.CompareTag("Player"))
         {
@@ -34,8 +33,6 @@ public class FireBall : MonoBehaviour
 
     public void SetDirection(float angle)
     {
-        print(angle);
-
         if(angle == 0f) // up
         {
             direction = Vector2.up;

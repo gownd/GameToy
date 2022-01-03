@@ -21,16 +21,20 @@ public class SpinBlock : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        CollisionSide side = collisionSideDetector.GetCollisionSide(other, boxCollider);    
+        print("A");
+
+        CollisionSide side = collisionSideDetector.GetCollisionSide(other, boxCollider);   
+        print(side); 
         if(side == CollisionSide.down)
         {
+            print("B");
             StartCoroutine(Spin(other));
         }
     }
 
     IEnumerator Spin(Collision2D other)
     {
-        if(!other.collider.CompareTag("Player")) yield break;
+        if(!(other.collider.CompareTag("Player") || other.collider.CompareTag("Touch"))) yield break;
 
         animator.SetBool("isSpinning", true);
         boxCollider.enabled = false;
